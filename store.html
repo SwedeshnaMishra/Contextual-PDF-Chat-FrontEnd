@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Reader - Result</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="w-full flex flex-col text-zinc-200 justify-center items-center bg-zinc-900"
+  >
+    <div class="w-3/4 ms:w-[90%] flex flex-col gap-5 items-center py-10">
+      <h1 id="filename" class="text-4xl font-bold"></h1>
+      <p id="display" class="text-justify text-lg"></p>
+    </div>
+
+    <div class="flex gap-4 mb-10">
+      <button
+        id="again"
+        class="cursor-pointer inline-block bg-zinc-600 hover:bg-zinc-500 hover:text-white font-semibold text-zinc-100 text-center px-4 py-3 rounded-lg transition duration-300 mt-2"
+      >
+        Upload again
+      </button>
+      <button
+        id="store"
+        class="cursor-pointer inline-block bg-zinc-600 hover:bg-zinc-500 hover:text-white font-semibold text-zinc-100 text-center px-4 py-3 rounded-lg transition duration-300 mt-2"
+      >
+        Submit
+      </button>
+    </div>
+
+    <script src="store.js"></script>
+  </body>
+</html>

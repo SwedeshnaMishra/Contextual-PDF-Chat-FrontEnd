@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stored</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="w-screen h-screen flex flex-col justify-center items-center p-20 bg-zinc-900 text-zinc-200 gap-6"
+  >
+    <h1 id="filename" class="text-4xl font-bold">
+      PDF Text stored successfully
+    </h1>
+    <div class="flex gap-2">
+      <button
+        id="again"
+        class="cursor-pointer inline-block bg-zinc-600 hover:bg-zinc-500 hover:text-white font-semibold text-zinc-100 text-center px-4 py-3 rounded-lg transition duration-300 mt-2"
+      >
+        Upload more
+      </button>
+      <button
+        id="chatbot"
+        class="cursor-pointer inline-block bg-zinc-600 hover:bg-zinc-500 hover:text-white font-semibold text-zinc-100 text-center px-4 py-3 rounded-lg transition duration-300 mt-2"
+      >
+        Chatbot
+      </button>
+    </div>
+
+    <script src="stored.js"></script>
+  </body>
+</html>

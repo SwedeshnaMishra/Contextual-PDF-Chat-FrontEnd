@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF Reader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="w-screen h-screen flex flex-col bg-zinc-900">
+    <div
+      class="min-w-72 md:min-w-[500px] w-fit min-h-64 h-fit container p-10 m-auto rounded-lg bg-zinc-800 shadow-2xl"
+    >
+      <div class="flex items-center justify-center gap-2 mb-7">
+        <img
+          src="https://img.icons8.com/?size=100&id=36926&format=png&color=EBEBEB"
+          alt="PDF"
+          width="40"
+        />
+        <h2 class="text-xl font-semibold text-zinc-200">PDF Reader</h2>
+      </div>
+      <form class="flex flex-col" enctype="multipart/form-data">
+        <input
+          type="file"
+          id="file"
+          name="file"
+          accept="application/pdf"
+          class="hidden"
+          required
+        />
+        <label
+          for="file"
+          class="cursor-pointer flex flex-col items-center gap-2 inline-block border-4 border-zinc-400 text-lg font-semibold hover:font-bold text-zinc-300 text-center px-5 py-5 rounded-lg transition duration-300"
+          id="label"
+        >
+          <img
+            src="https://img.icons8.com/?size=100&id=367&format=png&color=EBEBEB"
+            alt="Upload"
+            width="50"
+          />
+          <p>Choose PDF</p>
+        </label>
+        <input
+          type="button"
+          id="extract-btn"
+          value="Extract text"
+          class="cursor-pointer inline-block bg-zinc-600 hover:bg-zinc-500 hover:font-bold hover:text-white font-semibold text-zinc-100 text-center px-4 py-3 rounded-lg transition duration-300 mt-2"
+        />
+      </form>
+    </div>
+    <footer
+      class="p-2 text-center bg-zinc-800 font-semibold text-lg text-zinc-100"
+    >
+      Chatbot by <span class="font-bold">NALCO</span>
+    </footer>
+    <script src="extract.js"></script>
+  </body>
+</html>
