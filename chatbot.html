@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI PDF Chatbot</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="chat-container">
+    <div class="chat-header">
+      📄 Contextual PDF Chatbot
+      <span id="typing-indicator" class="typing">Bot is typing...</span>
+    </div>
+
+    <div class="chat-box" id="chat-box"></div>
+
+    <form class="chat-input" onsubmit="sendMessage(event)">
+      <input type="text" id="user-input" placeholder="Ask something from the PDF..." autocomplete="off" />
+      <button type="submit">Send</button>
+    </form>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
