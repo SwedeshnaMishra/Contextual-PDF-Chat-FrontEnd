@@ -21,9 +21,6 @@ function appendMessage(sender, text, type) {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-API_ENDPOINT = `http://localhost:5000`
-
-
 async function sendMessage(event) {
   event.preventDefault();
   const input = document.getElementById("user-input");
