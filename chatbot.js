@@ -1,8 +1,22 @@
+API_ENDPOINT = `http://localhost:5000`
+
+const upload = document.getElementById("upload")
+
+upload.addEventListener("click", () => {
+  window.location.href = "extract.html";
+})
+
 function appendMessage(sender, text, type) {
   const chatBox = document.getElementById("chat-box");
   const message = document.createElement("div");
-  message.className = `message ${type}`;
-  message.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  message.innerHTML = `${text}`;
+
+  if (type === "user") {
+    message.className = "message user bg-zinc-700 text-white rounded-lg py-2 px-4 m-2 w-fit ml-auto text-right max-w-[80%] whitespace-pre-wrap break-words shadow";
+  } else {
+    message.className = "message bot bg-zinc-800 text-white rounded-lg py-2 px-5 m-2 w-fit mr-auto text-left max-w-[80%] whitespace-pre-wrap break-words shadow";
+  }
+
   chatBox.appendChild(message);
   chatBox.scrollTop = chatBox.scrollHeight;
 }
@@ -18,7 +32,7 @@ async function sendMessage(event) {
   toggleTyping(true);
 
   try {
-    const res = await fetch("/ask", {
+    const res = await fetch(`${API_ENDPOINT}/ask`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ question })
@@ -39,31 +53,4 @@ async function sendMessage(event) {
 function toggleTyping(show) {
   const indicator = document.getElementById("typing-indicator");
   indicator.style.display = show ? "inline" : "none";
-}
-
-async function uploadPDF() {
-  const fileInput = document.getElementById("file-upload");
-  const file = fileInput.files[0];
-  if (!file) {
-    alert("Please select a PDF file.");
-    return;
-  }
-
-  const formData = new FormData();
-  formData.append("file", file);
-
-  try {
-    const res = await fetch("/upload", {
-      method: "POST",
-      body: formData
-    });
-    const data = await res.json();
-    if (data.success) {
-      alert("PDF uploaded and processed successfully.");
-    } else {
-      alert("Upload failed: " + data.message);
-    }
-  } catch (err) {
-    alert("Failed to upload file.");
-  }
 }

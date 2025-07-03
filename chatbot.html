@@ -1,27 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI PDF Chatbot</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <div class="chat-container">
-    <div class="chat-header">
-      📄 Contextual PDF Chatbot
-      <span id="typing-indicator" class="typing">Bot is typing...</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="w-screen h-screen flex flex-col justify-center items-center p-20 bg-zinc-900 text-zinc-200 gap-6"
+  >
+    <div
+      class="chat-container h-full w-full flex flex-col border-2 border-zinc-400 rounded-lg"
+    >
+      <div class="chat-header w-full text-center text-4xl flex p-5">
+        <p class="flex-grow font-bold">NALCO Chatbot</p>
+        <span
+          id="typing-indicator"
+          class="typing text-lg overflow-hidden d-none hidden"
+          >Bot is typing...</span
+        >
+      </div>
+
+      <div
+        class="chat-box w-full flex-grow p-5 overflow-scroll"
+        id="chat-box"
+      ></div>
+
+      <form
+        class="chat-input w-full flex border-2 border-zinc-400 rounded-lg"
+        onsubmit="sendMessage(event)"
+      >
+        <input
+          type="text"
+          id="user-input"
+          placeholder="Ask something from the PDF..."
+          autocomplete="off"
+          class="flex-grow px-5 py-3 bg-zinc-800 font-semibold"
+        />
+        <button
+          type="submit"
+          class="px-10 py-3 bg-zinc-600 font-semibold text-lg border-2 border-left border-zinc-800"
+        >
+          SEND
+        </button>
+        <button
+          id="upload"
+          class="px-10 py-3 bg-zinc-600 font-semibold text-lg border-2 border-left border-zinc-800"
+        >
+          UPLOAD PDF
+        </button>
+      </form>
     </div>
 
-    <div class="chat-box" id="chat-box"></div>
-
-    <form class="chat-input" onsubmit="sendMessage(event)">
-      <input type="text" id="user-input" placeholder="Ask something from the PDF..." autocomplete="off" />
-      <button type="submit">Send</button>
-    </form>
-
-  </div>
-
-  <script src="script.js"></script>
-</body>
+    <script src="chatbot.js"></script>
+  </body>
 </html>
